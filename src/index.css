@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+body {
+  background: #feedbc;
+}
+
+.leading-md {
+  line-height: 1.7rem;
+}
