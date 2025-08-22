@@ -1,9 +1,280 @@
 @import "tailwindcss";
 
-body {
-  background: #feedbc;
+:root {
+  --color-primary: #f9b800;
+  --color-secondary: #262626;
+  --bg-page: #feedbc;
+  --shadow-offset: 9px;
 }
 
-.leading-md {
-  line-height: 1.7rem;
+@theme inline {
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
+}
+
+@layer utilities {
+  .leading-md {
+    line-height: 1.7;
+  }
+}
+
+body {
+  background: var(--bg-page);
+}
+
+.btn {
+  transition: box-shadow 100ms ease-out;
+}
+.btn .icon {
+  transform-origin: 50% 50%;
+  transform-box: fill-box;
+  will-change: transform;
+}
+
+.btn.primary {
+  background: var(--color-primary);
+  color: var(--color-secondary);
+  --hover-color: var(--color-secondary);
+}
+.btn.secondary {
+  background: var(--color-secondary);
+  color: #fff;
+  --hover-color: #fff;
+}
+.btn.light {
+  background: #fff;
+  color: var(--color-secondary);
+  --hover-color: var(--color-primary);
+}
+
+.btn.is-hovered {
+  box-shadow: var(--shadow-offset) var(--shadow-offset) 0 0 var(--hover-color);
+  outline: 2px solid var(--hover-color);
+}
+
+.btn.is-hovered .icon {
+  animation: arrow-bounce-in 800ms ease-out 1 forwards;
+}
+.btn.was-hovered:not(.is-hovered) .icon {
+  animation: arrow-bounce-out 800ms ease-out 1 forwards;
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--hover-color, currentColor);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn {
+    transition: none !important;
+  }
+  .btn .icon {
+    animation: none !important;
+  }
+  .btn.is-hovered .icon {
+    transform: rotate(90deg);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn.is-hovered .icon {
+    animation: arrow-bounce-in 800ms ease-out 1 forwards;
+  }
+  .btn.was-hovered:not(.is-hovered) .icon {
+    animation: arrow-bounce-out 800ms ease-out 1 forwards;
+  }
+}
+
+@keyframes arrow-bounce-in {
+  0% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(120deg);
+  }
+  40% {
+    transform: rotate(84deg);
+  }
+  60% {
+    transform: rotate(92deg);
+  }
+  80% {
+    transform: rotate(89deg);
+  }
+  90% {
+    transform: rotate(91deg);
+  }
+  100% {
+    transform: rotate(90deg);
+  }
+}
+@keyframes arrow-bounce-out {
+  0% {
+    transform: rotate(90deg);
+  }
+  20% {
+    transform: rotate(-18deg);
+  }
+  40% {
+    transform: rotate(6deg);
+  }
+  60% {
+    transform: rotate(-10deg);
+  }
+  80% {
+    transform: rotate(3deg);
+  }
+  90% {
+    transform: rotate(-2deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@media (forced-colors: active) {
+  .btn {
+    outline: 2px solid CanvasText;
+  }
+  .btn.is-hovered {
+    outline-color: Highlight;
+  }
+}
+
+/* card animation */
+:root {
+  --card-radius: 60px; /* your card radius */
+  --fill-color: #f9b800; /* overlay fill color */
+  --bounce-duration: 400ms;
+}
+
+/* ensure the card clips the overlay and positions it correctly */
+.custom-card {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: 60px;
+  transition: all 100ms ease-out;
+}
+
+/* overlay sits under content */
+.custom-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* the fill overlay */
+.custom-card::before {
+  content: "";
+  position: absolute;
+  inset: 0; /* full overlay, we'll scale it */
+  background: var(--color-secondary);
+  color: white;
+  z-index: 0;
+  transform-origin: 50% 100%; /* bottom-center anchor */
+  transform: scaleX(0.25) scaleY(0); /* small bubble at bottom */
+  will-change: transform, border-top-left-radius, border-top-right-radius;
+
+  /* bottom corners NEVER change */
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+
+  /* top corners animate only */
+  border-top-left-radius: 999px;
+  border-top-right-radius: 999px;
+}
+
+.custom-card.is-hovered {
+  box-shadow: 0 0 172px 0 rgba(8, 8, 9, 0.32);
+  /* background: var(--color-secondary); */
+  color: white;
+}
+
+/* Hover-in */
+.custom-card.is-hovered::before {
+  animation: fill-up-in var(--bounce-duration) ease-out forwards;
+}
+
+/* Hover-out (only when leaving) */
+.custom-card.was-hovered:not(.is-hovered)::before {
+  animation: fill-up-out var(--bounce-duration) ease-out forwards;
+}
+
+@keyframes fill-up-in {
+  0% {
+    transform: scaleX(1) scaleY(0);
+    border-top-left-radius: 999px;
+    border-top-right-radius: 999px;
+  }
+  40% {
+    transform: scaleX(1) scaleY(1);
+    border-top-left-radius: 60px;
+    border-top-right-radius: 60px;
+  }
+  60% {
+    transform: scaleX(1) scaleY(0.85);
+    border-top-left-radius: 999px;
+    border-top-right-radius: 999px;
+  }
+  80% {
+    transform: scaleX(1) scaleY(1);
+    border-top-left-radius: 60px;
+    border-top-right-radius: 60px;
+  }
+  90% {
+    transform: scaleX(1) scaleY(1);
+    border-top-left-radius: 65px;
+    border-top-right-radius: 65px;
+  }
+  100% {
+    transform: scaleX(1) scaleY(1);
+    border-top-left-radius: var(--card-radius);
+    border-top-right-radius: var(--card-radius);
+  }
+}
+
+/* OUT: retract to bottom with little bounces; bottom radii stay 0 */
+@keyframes fill-up-out {
+  0% {
+    transform: scaleX(1) scaleY(1);
+    border-top-left-radius: var(--card-radius);
+    border-top-right-radius: var(--card-radius);
+  }
+  40% {
+    transform: scaleX(1) scaleY(0);
+    border-top-left-radius: 999px;
+    border-top-right-radius: 999px;
+  }
+  60% {
+    transform: scaleX(1) scaleY(0.2);
+    border-top-left-radius: 999px;
+    border-top-right-radius: 999px;
+  }
+  80% {
+    transform: scaleX(1) scaleY(1);
+    border-top-left-radius: 999px;
+    border-top-right-radius: 999px;
+  }
+  80% {
+    transform: scaleX(1) scaleY(0.1);
+    border-top-left-radius: 999px;
+    border-top-right-radius: 999px;
+  }
+  100% {
+    transform: scaleX(1) scaleY(0);
+    border-top-left-radius: 999px;
+    border-top-right-radius: 999px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .custom-card::before {
+    animation: none !important;
+  }
+  .custom-card.is-hovered::before,
+  .custom-card.was-hovered:not(.is-hovered)::before {
+    transform: scaleX(1) scaleY(1);
+    border-top-left-radius: var(--card-radius);
+    border-top-right-radius: var(--card-radius);
+  }
 }
