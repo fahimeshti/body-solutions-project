@@ -3,7 +3,7 @@ import Container from "./atoms/Container";
 const Navbar = () => {
   return (
     <Container>
-      <nav className="flex items-center justify-between w-full bg-white px-6 py-2 rounded-full mt-[4.25rem]">
+      <nav className="flex items-center justify-between w-full bg-white px-6 h-[72px] lg:h-[96px] rounded-full mt-[50px] lg:mt-[4.25rem]">
         <div className="w-8" />
 
         <div className="flex items-center justify-center">

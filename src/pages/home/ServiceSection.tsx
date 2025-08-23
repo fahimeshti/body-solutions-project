@@ -2,10 +2,11 @@ import Button from "../../components/atoms/Button";
 import Container from "../../components/atoms/Container";
 import Curve from "../../components/atoms/Curve";
 import CardGrid from "./CardGrid";
+import TestimonialSection from "./TestimonialSection";
 
 const ServiceSection = () => {
   return (
-    <div className="mt-[-23vw]">
+    <div className="mt-[-23vw] relative">
       <Curve fill="#262626" />
       <Container className="bg-[#262626] pb-[46.25rem]">
         <div className="pt-[2.375rem]">
@@ -29,6 +30,8 @@ const ServiceSection = () => {
           </div>
         </div>
       </Container>
+
+      <TestimonialSection />
     </div>
   );
 };

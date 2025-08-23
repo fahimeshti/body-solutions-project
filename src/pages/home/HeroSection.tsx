@@ -15,11 +15,11 @@ const HeroSection = () => {
     <>
       <Container className="bg-[#feedbc] pb-[23vw]">
         <div className="w-full pt-[4.25rem] flex h-full">
-          <div className="pt-[2.875rem] w-full">
-            <span className="font-bold text-[#F9B800] text-[1.875rem] leading-[100%] uppercase align-middle tracking-normal ">
+          <div className="pt-[2.875rem] pl-[95px] w-full">
+            <span className="font-bold text-[#F9B800] text-[1.875rem] leading-[100%] uppercase align-middle tracking-normal">
               risus praesent vulputate.
             </span>
-            <div className="font-bold text-[5rem] leading-[5.625rem] tracking-normal mb-[3.75rem]">
+            <div className="font-bold text-[5rem] leading-[5.625rem] tracking-normal mb-[3.75rem] w-[780px]">
               <h1>
                 <span>Cursus Integer</span>
                 <br />
@@ -31,7 +31,7 @@ const HeroSection = () => {
               {pills.map((pill, index) => (
                 <div
                   key={index}
-                  className="bg-white rounded-full pl-5 pr-[2.5rem] py-[0.625rem] text-[0.875rem] font-semibold text-[#262626] flex items-center gap-2"
+                  className="bg-white rounded-full pl-5 pr-[2.5rem] py-[0.625rem] text-[20px] leading-[27px] font-semibold text-[#262626] flex items-center gap-2"
                 >
                   <span className="w-[1.875rem] h-[1.875rem] grid place-content-center">
                     <svg
@@ -53,7 +53,7 @@ const HeroSection = () => {
             </div>
             <Button>Lorem Ipsum</Button>
           </div>
-          <div className="w-full h-[50rem]">
+          <div className="w-full h-[45rem]">
             <img
               src="/hero-bg.png"
               alt="Hero Section Image"

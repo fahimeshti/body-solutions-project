@@ -45,7 +45,6 @@ const CardGrid = () => {
               e.currentTarget.classList.add("was-hovered");
             }}
             onAnimationEnd={(e) => {
-              // clean up the "was-hovered" flag after out animation finishes
               const el = e.currentTarget as HTMLElement;
               if (!el.classList.contains("is-hovered")) {
                 el.classList.remove("was-hovered");
@@ -54,10 +53,10 @@ const CardGrid = () => {
             className={`w-[22rem] h-[25rem] p-[3.125rem] relative custom-card ${
               Number.isInteger(Math.sqrt(index + 1))
                 ? "bg-white"
-                : "bg-yellow-400"
+                : "bg-primary"
             }${(index + 1) % 2 !== 0 ? " -mt-[7.75rem]" : ""}`}
           >
-           <div className="flex flex-col items-start gap-6 mb-[0.6rem]">
+            <div className="flex flex-col items-start gap-6 mb-[0.6rem]">
               <img
                 src={card.icon}
                 alt=""
@@ -76,9 +75,7 @@ const CardGrid = () => {
             <h4 className="text-2xl font-semibold leading-md">
               {card.subtitle}
             </h4>
-            <p className="leading-[1.5rem] text-lg font-normal">
-              {card.desc}
-            </p>
+            <p className="leading-[1.5rem] text-lg font-normal">{card.desc}</p>
           </div>
         ))}
       </div>

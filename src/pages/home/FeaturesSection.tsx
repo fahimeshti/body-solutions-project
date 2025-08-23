@@ -13,7 +13,7 @@ const pills = [
 
 const FeaturesSection = () => {
   return (
-    <div className="mt-[-23vw]">
+    <div className="mt-[-23vw] relative">
       <Curve fill="#F9B800" />
       <Container className="bg-[#F9B800]">
         <div className="w-full pt-[18.75rem] pb-[25.25rem] flex h-full">
