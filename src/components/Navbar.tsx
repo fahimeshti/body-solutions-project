@@ -3,20 +3,20 @@ import Container from "./atoms/Container";
 const Navbar = () => {
   return (
     <Container>
-      <nav className="flex items-center justify-between w-full bg-white px-6 h-[72px] lg:h-[96px] rounded-full mt-[50px] lg:mt-[4.25rem]">
-        <div className="w-8" />
+      <nav className="flex items-center justify-between w-full bg-white px-4 lg:px-6 h-[72px] lg:h-[96px] rounded-full mt-[50px] lg:mt-[4.25rem]">
+        <div className="w-8 hidden lg:block" />
 
         <div className="flex items-center justify-center">
           <div className="flex items-center">
-            <img src="/logo-paint.png" alt="" className="w-[8rem] h-[4rem]" />
+            <img src="/logo-paint.png" alt="" className="w-[95px] h-[48px] lg:w-[8rem] lg:h-[4rem]" />
           </div>
         </div>
 
-        <div className="flex items-center gap-2 justify-self-end">
-          <img src="/us-flag.png" alt="" className="w-9 h-6" />
+        <div className="flex items-center gap-[5px] lg:gap-2 justify-self-end">
+          <img src="/us-flag.png" alt="" className="w-[27px] h-[18px] lg:w-9 lg:h-6" />
           <button
             type="button"
-            className="w-6 h-6 flex items-center justify-center"
+            className="w-[18px] h-[18px] lg:w-6 lg:h-6 flex items-center justify-center"
           >
             <svg
               width="12"

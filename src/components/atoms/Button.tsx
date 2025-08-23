@@ -37,7 +37,7 @@ const Button = ({
   }`;
 
   const classes = [
-    "w-[22rem] px-[3.1rem] py-[1.375rem] font-bold text-2xl rounded-full flex items-center gap-2 justify-between cursor-pointer btn",
+    "w-[22rem] px-[3.1rem] py-[1.375rem] font-bold text-[18px] lg:text-2xl rounded-full flex items-center gap-2 justify-between cursor-pointer btn",
     baseVariant,
     className,
     primaryStateClasses,

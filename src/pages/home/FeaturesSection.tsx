@@ -16,9 +16,9 @@ const FeaturesSection = () => {
     <div className="mt-[-23vw] relative">
       <Curve fill="#F9B800" />
       <Container className="bg-[#F9B800]">
-        <div className="w-full pt-[18.75rem] pb-[25.25rem] flex h-full">
+        <div className="w-full pt-[24rem] lg:pt-[18.75rem] pb-[8rem] lg:pb-[25.25rem] flex flex-col-reverse lg:flex-row h-full">
           <div className="pt-[3rem] w-full">
-            <div className="font-bold text-[5rem] leading-[5.6rem] tracking-normal mb-[3.75rem]">
+            <div className="font-bold text-[36px] lg:text-[5rem] leading-[48px] lg:leading-[5.6rem] tracking-normal mb-[30px] lg:mb-[3.75rem]">
               <h4>
                 <span>Cursus Integer</span>
                 <br />
@@ -26,11 +26,11 @@ const FeaturesSection = () => {
               </h4>
             </div>
 
-            <div className="w-full flex flex-wrap max-w-[38.75rem] gap-[0.875rem] mb-[3.75rem]">
+            <div className="w-full flex flex-wrap max-w-[38.75rem] gap-[0.875rem] mb-[40px] lg:mb-[3.75rem]">
               {pills.map((pill, index) => (
                 <div
                   key={index}
-                  className="bg-white rounded-full pl-5 pr-[2.5rem] py-[0.625rem] text-[1.25rem] leading-md font-semibold text-[#262626] flex items-center gap-2"
+                  className="bg-white rounded-full pl-5 pr-[2.5rem] py-[0.625rem] text-[16px] lg:text-[1.25rem] leading-[22px] lg:leading-md font-semibold text-[#262626] flex items-center gap-2"
                 >
                   <span className="w-[1.875rem] h-[1.875rem] grid place-content-center">
                     <svg
@@ -52,7 +52,7 @@ const FeaturesSection = () => {
             </div>
             <Button variant="secondary">Lorem Ipsum</Button>
           </div>
-          <div className="w-full h-[44.625rem]">
+          <div className="w-full h-[350px] lg:h-[44.625rem]">
             <img
               src="/featured.png"
               alt="Hero Section Image"

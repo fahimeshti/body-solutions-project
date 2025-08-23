@@ -1,5 +1,6 @@
 import Button from "../../components/atoms/Button";
 import Container from "../../components/atoms/Container";
+import HeroImage from "./HeroImage";
 
 const pills = [
   "Cursus Integer",
@@ -14,24 +15,29 @@ const HeroSection = () => {
   return (
     <>
       <Container className="bg-[#feedbc] pb-[23vw]">
-        <div className="w-full pt-[4.25rem] flex h-full">
-          <div className="pt-[2.875rem] pl-[95px] w-full">
-            <span className="font-bold text-[#F9B800] text-[1.875rem] leading-[100%] uppercase align-middle tracking-normal">
+        <div className="w-full lg:pt-[4.25rem] flex flex-col-reverse lg:flex-row h-full">
+          <div className="lg:pt-[2.875rem] lg:pl-[95px] w-full">
+            <span className="font-bold text-[#F9B800] text-[16px] lg:text-[1.875rem] leading-[100%] uppercase align-middle tracking-normal">
               risus praesent vulputate.
             </span>
-            <div className="font-bold text-[5rem] leading-[5.625rem] tracking-normal mb-[3.75rem] w-[780px]">
+
+            <div className="font-bold text-[36px] lg:text-[5rem] tracking-normal mb-[30px] lg:mb-[3.75rem] lg:w-[780px]">
               <h1>
-                <span>Cursus Integer</span>
+                <span className="leading-[48px] lg:leading-[5.6rem]">
+                  Cursus Integer
+                </span>
                 <br />
-                <span>Consequat Tristique.</span>
+                <span className="leading-[36px] lg:leading-[5.6rem]">
+                  Consequat Tristique.
+                </span>
               </h1>
             </div>
 
-            <div className="w-full flex flex-wrap max-w-[40.938rem] gap-[0.875rem] mb-[3.75rem]">
+            <div className="w-full flex flex-wrap max-w-[40.938rem] gap-[0.875rem] mb-[40px] lg:mb-[3.75rem]">
               {pills.map((pill, index) => (
                 <div
                   key={index}
-                  className="bg-white rounded-full pl-5 pr-[2.5rem] py-[0.625rem] text-[20px] leading-[27px] font-semibold text-[#262626] flex items-center gap-2"
+                  className="bg-white rounded-full pl-5 pr-[2.5rem] py-[0.625rem] text-[17px] lg:text-[20px] leading-[27px] font-semibold text-[#262626] flex items-center gap-2"
                 >
                   <span className="w-[1.875rem] h-[1.875rem] grid place-content-center">
                     <svg
@@ -53,12 +59,13 @@ const HeroSection = () => {
             </div>
             <Button>Lorem Ipsum</Button>
           </div>
-          <div className="w-full h-[45rem]">
-            <img
+          <div className="w-full h-[350px] lg:h-[45rem]">
+            <HeroImage />
+            {/* <img
               src="/hero-bg.png"
               alt="Hero Section Image"
               className="w-full h-full object-contain"
-            />
+            /> */}
           </div>
         </div>
       </Container>

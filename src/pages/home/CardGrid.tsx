@@ -32,7 +32,7 @@ const CardGrid = () => {
 
   return (
     <div className="w-fit ml-auto">
-      <div className="grid grid-cols-2 gap-[3.75rem]">
+      <div className="flex flex-col gap-[30px] lg:grid lg:grid-cols-2 lg:gap-[3.75rem]">
         {cards.map((card, index) => (
           <div
             key={index}
@@ -54,7 +54,7 @@ const CardGrid = () => {
               Number.isInteger(Math.sqrt(index + 1))
                 ? "bg-white"
                 : "bg-primary"
-            }${(index + 1) % 2 !== 0 ? " -mt-[7.75rem]" : ""}`}
+            }${(index + 1) % 2 !== 0 ? " lg:-mt-[7.75rem]" : ""}`}
           >
             <div className="flex flex-col items-start gap-6 mb-[0.6rem]">
               <img
