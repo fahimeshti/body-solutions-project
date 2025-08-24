@@ -209,7 +209,6 @@ body {
   }
 }
 
-/* OUT: retract to bottom with little bounces; bottom radii stay 0 */
 @keyframes fill-up-out {
   0% {
     transform: scaleX(1) scaleY(1);

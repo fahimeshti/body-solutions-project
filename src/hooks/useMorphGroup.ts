@@ -38,10 +38,11 @@ export function useMorphGroup({
     let active = true;
     const run = async () => {
       while (active) {
+        // @ts-ignore
         await animate(progress, 1, spring).finished;
         if (!active) break;
         await new Promise((r) => setTimeout(r, holdMs));
-
+        // @ts-ignore
         await animate(progress, 0, spring).finished;
         if (!active) break;
         await new Promise((r) => setTimeout(r, holdMs));
