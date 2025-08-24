@@ -1,6 +1,8 @@
 import Button from "../../components/atoms/Button";
 import Container from "../../components/atoms/Container";
+import AnimatedText from "./AnimatedText";
 import HeroImage from "./HeroImage";
+import TestFile from "./TestFile";
 
 const pills = [
   "Cursus Integer",
@@ -28,7 +30,7 @@ const HeroSection = () => {
                 </span>
                 <br />
                 <span className="leading-[36px] lg:leading-[5.6rem]">
-                  Consequat Tristique.
+                  Consequat <AnimatedText />
                 </span>
               </h1>
             </div>

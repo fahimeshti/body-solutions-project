@@ -3,13 +3,14 @@
 :root {
   --color-primary: #f9b800;
   --color-secondary: #262626;
-  --bg-page: #feedbc;
+  --color-page: #feedbc;
   --shadow-offset: 9px;
 }
 
 @theme inline {
   --color-primary: var(--color-primary);
   --color-secondary: var(--color-secondary);
+  --color-page: var(--color-page);
 }
 
 @layer utilities {
@@ -19,7 +20,7 @@
 }
 
 body {
-  background: var(--bg-page);
+  background: var(--color-page);
 }
 
 .btn {
@@ -353,44 +354,20 @@ body {
   }
 }
 
-/* optional: honor reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  .testimonial::before,
-  .testimonial.is-hovered::before,
-  .testimonial.was-hovered::before {
-    animation: none !important;
-    opacity: 1; /* or 0, depending on your desired default */
-    transform: translateY(0);
-  }
+.animation-blink {
+  animation: cursor-blink 0.4s linear infinite;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .btn {
-    transition: none !important;
+@keyframes cursor-blink {
+  0%,
+  10% {
+    opacity: 1;
   }
-  .btn .icon {
-    animation: none !important;
+  50% {
+    opacity: 0;
   }
-  .btn.is-hovered .icon {
-    transform: rotate(90deg);
-  }
-
-  .custom-card::before {
-    animation: none !important;
-  }
-  .custom-card.is-hovered::before,
-  .custom-card.was-hovered:not(.is-hovered)::before {
-    transform: scaleX(1) scaleY(1);
-    border-top-left-radius: var(--card-radius);
-    border-top-right-radius: var(--card-radius);
-  }
-}
-
-@media (forced-colors: active) {
-  .btn {
-    outline: 2px solid CanvasText;
-  }
-  .btn.is-hovered {
-    outline-color: Highlight;
+  90%,
+  100% {
+    opacity: 1;
   }
 }

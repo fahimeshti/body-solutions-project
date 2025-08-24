@@ -13,10 +13,6 @@ type UseMorphGroupOpts = {
   outerOnly?: boolean;
 };
 
-/**
- * Drives ONE shared progress MotionValue (0→1→0 looping).
- * Returns a function that takes {from, to} and returns a d MotionValue.
- */
 export function useMorphGroup({
   holdMs = 100,
   spring = {
