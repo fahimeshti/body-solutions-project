@@ -16,8 +16,8 @@ const FeaturesSection = () => {
     <div className="mt-[-23vw] relative">
       <Curve fill="#F9B800" />
       <Container className="bg-[#F9B800]">
-        <div className="w-full pt-[24rem] lg:pt-[18.75rem] pb-[8rem] lg:pb-[25.25rem] flex flex-col-reverse lg:flex-row h-full">
-          <div className="pt-[3rem] w-full">
+        <div className="w-full pt-[22rem] lg:pt-[18.75rem] pb-[8rem] lg:pb-[25.25rem] flex flex-col-reverse lg:flex-row h-full">
+          <div className="pt-[1rem] lg:pt-[3rem] w-full">
             <div className="font-bold text-[36px] lg:text-[5rem] leading-[48px] lg:leading-[5.6rem] tracking-normal mb-[30px] lg:mb-[3.75rem]">
               <h4>
                 <span>Cursus Integer</span>
@@ -52,7 +52,7 @@ const FeaturesSection = () => {
             </div>
             <Button variant="secondary">Lorem Ipsum</Button>
           </div>
-          <div className="w-full h-[350px] lg:h-[44.625rem]">
+          <div className="w-full h-auto lg:h-[44.625rem]">
             <img
               src="/featured.png"
               alt="Hero Section Image"

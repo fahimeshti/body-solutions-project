@@ -1,5 +1,3 @@
-import React, { useState, useCallback } from "react";
-
 const Button = ({
   children,
   onClick,
@@ -13,18 +11,6 @@ const Button = ({
   type?: "button" | "submit" | "reset";
   variant?: "primary" | "secondary" | "light";
 }) => {
-  const [isHovered, setIsHovered] = useState(false);
-  const [wasHovered, setWasHovered] = useState(false);
-
-  const onEnter = useCallback(() => {
-    setIsHovered(true);
-    setWasHovered(true);
-  }, []);
-
-  const onLeave = useCallback(() => {
-    setIsHovered(false);
-  }, []);
-
   const baseVariant =
     variant === "primary"
       ? "primary"
@@ -32,15 +18,10 @@ const Button = ({
       ? "secondary"
       : "light";
 
-  const primaryStateClasses = `${isHovered ? " is-hovered" : ""}${
-    wasHovered ? " was-hovered" : ""
-  }`;
-
   const classes = [
-    "w-[22rem] px-[3.1rem] py-[1.375rem] font-bold text-[18px] lg:text-2xl rounded-full flex items-center gap-2 justify-between cursor-pointer btn",
+    "w-full md:w-[22rem] px-[3.1rem] py-[1.375rem] font-bold text-[18px] lg:text-2xl rounded-full flex items-center gap-2 justify-between cursor-pointer btn",
     baseVariant,
     className,
-    primaryStateClasses,
   ].join(" ");
 
   return (
@@ -48,10 +29,20 @@ const Button = ({
       type={type}
       className={classes}
       onClick={onClick}
-      onPointerEnter={onEnter}
-      onPointerLeave={onLeave}
-      onFocus={onEnter}
-      onBlur={onLeave}
+      onMouseEnter={(e) => {
+        e.currentTarget.classList.add("is-hovered");
+        e.currentTarget.classList.remove("was-hovered");
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.classList.remove("is-hovered");
+        e.currentTarget.classList.add("was-hovered");
+      }}
+      onAnimationEnd={(e) => {
+        const el = e.currentTarget as HTMLElement;
+        if (!el.classList.contains("is-hovered")) {
+          el.classList.remove("was-hovered");
+        }
+      }}
     >
       {children}
       <svg

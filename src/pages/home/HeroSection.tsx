@@ -2,7 +2,6 @@ import Button from "../../components/atoms/Button";
 import Container from "../../components/atoms/Container";
 import AnimatedText from "./AnimatedText";
 import HeroImage from "./HeroImage";
-import TestFile from "./TestFile";
 
 const pills = [
   "Cursus Integer",
@@ -61,13 +60,8 @@ const HeroSection = () => {
             </div>
             <Button>Lorem Ipsum</Button>
           </div>
-          <div className="w-full h-[350px] lg:h-[45rem]">
+          <div className="w-full h-auto lg:h-[45rem] relative">
             <HeroImage />
-            {/* <img
-              src="/hero-bg.png"
-              alt="Hero Section Image"
-              className="w-full h-full object-contain"
-            /> */}
           </div>
         </div>
       </Container>

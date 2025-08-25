@@ -2,7 +2,7 @@ import Container from "../../components/atoms/Container";
 
 const TestimonialSection = () => {
   return (
-    <div className="absolute bottom-[-10%] lg:-bottom-[130px] left-1/2 -translate-x-1/2 w-full z-1">
+    <div className="absolute bottom-[-12%] lg:-bottom-[130px] left-1/2 -translate-x-1/2 w-full z-1">
       <Container className="">
         <div
           onMouseEnter={(e) => {
@@ -15,7 +15,6 @@ const TestimonialSection = () => {
           }}
           onAnimationEnd={(e) => {
             const el = e.currentTarget as HTMLElement;
-            // Only clean up after the exit animation
             if (e.nativeEvent.animationName === "bounce-out-smooth") {
               el.classList.remove("was-hovered");
             }
@@ -23,7 +22,7 @@ const TestimonialSection = () => {
           className="relative testimonial rounded-[60px] lg:rounded-[100px]"
         >
           <div className="w-full flex flex-col lg:flex-row items-center px-[28px] py-[38px] lg:py-[100px] lg:px-[135px] rounded-[60px]">
-            <div className="shrink-0 w-[272px] lg:w-[472px] aspect-square rounded-full overflow-hidden">
+            <div className="shrink-0 w-full max-w-[272px] lg:max-w-full lg:w-[472px] aspect-square rounded-full overflow-hidden">
               <img src="/review.png" alt="" className="w-full h-full" />
             </div>
 
